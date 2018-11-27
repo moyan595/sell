@@ -1,0 +1,37 @@
+
+server:
+  context-path: /sell
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.128:3306/sell?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    show-sql: false
+  jackson:
+    default-property-inclusion: non_null #json序列化，若javabean的属性为null，则不返回该属性
+  freemarker:
+    request-context-attribute: request
+  redis:
+    host: 192.168.1.128
+    port: 6379
+
+#微信
+wechat:
+  mpAppId: wxc6684d75be483ac6
+  mpAppSecret: 4fe6c30d74e02bd0917923aa45e10723
+  openAppId: #TODO 微信开放平台AppId
+  openAppSecret: #TODO 微信开放平台密钥
+  mchId: #TODO 商户ID
+  mchKey: #TODO 商户密钥
+  keyPath: #TODO 商户证书路径
+  notifyUrl: #TODO 微信异步通知URL http://sell.com/sell/pay/notify
+  templateId:
+    orderStatus:
+
+projectUrl:
+  wechatMpAuthorize: http://g22668v210.iok.la #微信公众平台授权url
+  wechatOpenAuthorize: http://g22668v210.iok.la #微信开发平台扫码登录授权url
+  sell: http://g22668v210.iok.la #项目url
