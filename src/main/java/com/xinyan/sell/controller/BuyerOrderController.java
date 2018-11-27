@@ -24,27 +24,37 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 买家订单 Controller
+ * 买家订单 Controller.
+ *
+ * @author 谢老师
  */
 @RequestMapping("/buyer/order")
 @Slf4j
 @RestController
 public class BuyerOrderController {
 
+    /**
+     * 订单业务接口.
+     */
     @Autowired
     private OrderService orderService;
 
+    /**
+     * 买家 服务接口.
+     */
     @Autowired
     private BuyerService buyerService;
 
     /**
-     * 创建订单
-     * @param orderForm
-     * @param bindingResult
-     * @return
+     * 创建订单.
+     *
+     * @param orderForm     the OrderForm
+     * @param bindingResult BindingResult
+     * @return result vo
      */
     @PostMapping("/create")
-    public ResultVO<Map<String, String>> cereate(@Valid OrderForm orderForm, BindingResult bindingResult){
+    public ResultVO<Map<String, String>> cereate
+    (@Valid OrderForm orderForm, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             log.error("【创建订单】订单参数有误, OrderForm:{}", orderForm);
             throw new SellException(ResultStatus.ORDER_PARAM_ERROR.getCode(),
@@ -67,11 +77,12 @@ public class BuyerOrderController {
     }
 
     /**
-     * 订单列表
-     * @param openid
-     * @param page
-     * @param size
-     * @return
+     * 订单列表.
+     *
+     * @param openid the openid
+     * @param page   the page
+     * @param size   the size
+     * @return result vo
      */
     @GetMapping("/list")
     public ResultVO<List<OrderDTO>> list(@RequestParam("openid") String openid,
@@ -92,7 +103,10 @@ public class BuyerOrderController {
 
     /**
      * 订单详情
-     * @return
+     *
+     * @param openid  the openid
+     * @param orderId the order id
+     * @return result vo
      */
     @GetMapping("/detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
@@ -105,9 +119,10 @@ public class BuyerOrderController {
 
     /**
      * 取消订单
-     * @param openid
-     * @param orderId
-     * @return
+     *
+     * @param openid  the openid
+     * @param orderId the order id
+     * @return result vo
      */
     @PostMapping("/cancel")
     public ResultVO cancel(@RequestParam("openid") String openid,

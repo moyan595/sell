@@ -2,6 +2,7 @@ package com.xinyan.sell.constant;
 
 /**
  * Redis 常量
+ * @author 谢老师
  */
 public interface RedisConstant {
 

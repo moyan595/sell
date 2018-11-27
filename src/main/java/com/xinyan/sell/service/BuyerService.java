@@ -4,6 +4,7 @@ import com.xinyan.sell.dto.OrderDTO;
 
 /**
  * 买家 服务接口
+ * @author 谢老师
  */
 public interface BuyerService {
 

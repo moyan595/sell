@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Order 订单数据传输对象
+ * @author 谢老师
  */
 @Data
 public class OrderDTO {
@@ -44,7 +45,7 @@ public class OrderDTO {
 
     /** 创建时间 */
     @JsonSerialize(using = SerialDateToSecond.class)
-//    @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    /*@JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")*/
     private Date createTime;
 
     /** 修改时间 */

@@ -10,6 +10,7 @@ import java.util.Date;
 
 /**
  * JSON 序列化日期
+ * @author 谢老师
  */
 public class SerialDateToSecond extends JsonSerializer<Date> {
 
